@@ -1,0 +1,24 @@
+<h1>hello </h1>
+
+  <h1>
+    Products
+  </h1>
+
+    
+        <%= @product.id %>
+        <%=@product.name %>
+        <%= @product.price %>
+        <%#= image_tag(product.image,:size => "260x180") %>
+        <%= image_tag(@product.image) if @product.image.attached? %>
+        <%#= product.image %>
+      
+    
+
+
+ 
+
+
+
+</body>
+</html>
+

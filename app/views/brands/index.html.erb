@@ -1,0 +1,34 @@
+<%=link_to "create brand",new_brand_path %>
+
+<%#= link_to "Add new appointment", new_product_path %>
+
+
+<br>
+<style type="text/css">
+table, th, td {
+  border: 1px solid black;
+  border-collapse: collapse;
+  height :50px;
+  width :500px ;
+}
+</style>
+<table>
+	<thead class="thead-dark">
+	 <tr>
+	 	<th> brand id</th> 
+	 	<th> name </th> 
+	 		
+	 		<th> Delete</th>
+	 		<th> show</th>
+	 </tr></thead>
+	<% @brands.each do|t|%>
+		<tr>
+			<td> <center><%= t.id%></center> </td> 
+		 <td> <center> <%= t.name%></center> </td> 
+		 
+		 <td> <center> <%= link_to "Delete " ,brand_path(t.id) ,method: :DELETE %></center></td>
+		
+		 <td> <center><%= link_to "show" , brand_path(t.id) %> </center></td>
+		</tr>	 
+<% end %>
+</table>

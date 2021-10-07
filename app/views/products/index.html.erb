@@ -1,0 +1,127 @@
+<h3>All Details</h3>
+
+
+<style type="text/css">
+table, th, td {
+  border: 1px solid black;
+  border-collapse: collapse;
+  height :50px;
+  width :800px ;
+}
+</style>
+
+
+<h5>Enter the product to search </h5>
+<%= form_tag( products_path, method: :get) do %>
+
+Product name : <%=text_field_tag :search ,params[:search]%>
+Category name : <%=text_field_tag :store ,params[:store]%>
+<%= submit_tag ("search"),name: nil %>
+<% end %>
+
+
+
+<br> <br>
+<%= link_to "create new product" , new_product_path %><br>
+<%=render "products/new" %>
+<table>
+   <tr>
+    <center><th> image </th></center>
+    <center><th> category Id </th></center> 
+    <center><th> category name </th> </center>
+    <center><th> brand Id </th> </center>
+    <center><th> brand name </th></center>
+    <center><th> product id </th></center>
+    <center><th> product name</th></center>
+    <center><th> product cost</th></center>
+    <center><th> product quantity</th></center>
+      <th> Delete</th>
+      <th> show</th>
+      <th> edit</th>
+      
+   </tr>
+
+
+  <% @products.each do|t|%>
+
+    <tr>
+      <td> <%= image_tag(t.image,width:50) if t.image.attached? %>
+
+          <%#= image_tag(url_for(post.header_image)) if post.header_image.attached? %>
+        </td>
+      <td> <center><%=  t.category.present? ? t.category.id : "category not exist" %></center> </td> 
+     <td> <center> <%= t.category.present? ? t.category.name : "---"%></center> </td> 
+     <td> <center><%= t.brand.id%></center> </td> 
+     <td> <center> <%= t.brand.name%></center> </td> 
+     <td> <center> <%= t.id %></center> </td>
+     <td><center> <%= t.name%></center> </td>
+     <td><center> <%= t.price%></center> </td>
+     <td><center> <%= t.quantity%></center> </td>
+     
+     <td> <center> <%= link_to "Delete " ,product_path(t.id) ,method: :DELETE ,:remote => true, :class => 'delete_pony' %></center></td>
+    
+     <td> <center> <%= link_to "show" , product_path(t.id) %> </center></td>
+     <td> <center> <%= link_to "edit" , edit_product_path(t.id) %> </center></td>
+    </tr>  
+<% end %>
+</table>
+
+<%= link_to "create new category" , new_category_path %> <br>
+<%= link_to "create new brand" , new_brand_path %><br>
+
+<script>
+  
+  function createProduct() {
+    // body...
+
+  $(document).ready(createProduct(){
+  $.ajax({
+
+     type: "GET",s// GET in place of POST
+    
+     url: "/products/new",
+     data : ({name:"home appliances"}),
+     dataType: "json",
+     success: function (result) {
+        //do somthing here
+
+        window.alert("success!!");
+     },
+     error: function (){
+        window.alert("something wrong!");
+     }
+});
+
+   
+  };
+   
+
+
+
+// $(document).ready(function(){
+//   $("#t").click(function(){
+
+//     $.ajax({
+//      type: "GET",// GET in place of POST
+    
+//      url: "/products/new",
+//      data : JSON.stringify({name:"home appliances"}),
+//      dataType: "json",
+//      success: function (result) {
+//         //do somthing here
+//         window.alert("success!!");
+//      },
+//      error: function (){
+//         window.alert("something wrong!");
+//      }
+// });
+
+   
+//   });
+   
+// });
+
+
+</script>
+
+

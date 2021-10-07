@@ -1,0 +1,41 @@
+  
+
+
+
+
+
+
+
+
+
+
+
+  <h1>
+    Products
+  </h1>
+<ul>
+  <% Product.all.each do |product| %>
+    <li>
+        <%= product.id %>
+        <%= product.name %>
+        <%= product.price %>
+        <%#= image_tag(product.image,:size => "260x180") %><br>
+        <%= image_tag(product.image) if product.image.attached? %>
+        <%#= product.image %>
+      </a>
+    </li>
+  <% end %>
+</ul>
+
+
+ 
+
+
+</form>
+
+</body>
+</html>
+
+
+
+

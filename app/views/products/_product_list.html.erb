@@ -1,0 +1,22 @@
+<%= form_tag friend_create_ajax_form_friend_path, remote: true do %>
+
+
+<%= form_for @product , :url =>  products_path , method: :post do |f| %>	
+
+Category Name :  <%= f.select :category_id, Category.all.pluck(:name, :id) %><br><br>
+Brand Name :  <%= f.select :brand_id, Brand.all.pluck(:name, :id) %><br><br>
+Product Name : <%= f.text_field :name %><br><br>
+Product Cost : <%= f.text_field :price %><br><br>
+Product Quantity : <%= f.text_field :quantity %><br><br>
+Image: <%= f.file_field :image %><br><br>
+
+
+</body>
+
+
+<div class="actions">
+   <%= form.submit %>
+   </div>
+
+ 
+<% end %>

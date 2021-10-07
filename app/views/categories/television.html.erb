@@ -1,0 +1,10 @@
+<h1> category form </h1>
+
+<%= form_for @category , :url =>  categories_path , method: :post do |f| %>	
+
+ 
+   Product Name : <%= f.select :name, ['New Launchers', 'Top sellers','24-32 inch','40-43 inch','50-55 inch','Big Screen TVs','Smarts tv']%>
+
+ <%= submit_tag 'submit' %>
+ 
+<% end %>

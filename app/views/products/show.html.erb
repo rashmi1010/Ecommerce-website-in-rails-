@@ -1,0 +1,28 @@
+
+
+
+    		<%# debugger %>
+      <%= image_tag(@product.image,:size => "250x250")if @product.image.attached? %><br>
+      
+      Product Name: <%= @product.name %><br>
+       Product Id: <%= @product.id%><br>
+       Cost:<%=@product.price %><br>
+Description: <br> <textarea>Some text about the jeans. Super slim and comfy lorem ipsum lorem jeansum. Lorem jeamsun denim lorem jeansum.</textarea>
+
+<html>
+<body>
+
+<form action="/action_page.php">
+  <label for="quantity">Quantity :</label>
+  <input type="number" id="quantity" name="quantity" min ="1" >
+
+
+ 
+
+  <%= link_to "submit",  customers_path,class:"btn btn-primary btn-sm",class:'btn btn-warning',class:'btn btn-info'%><br>
+
+</form>
+
+</body>
+</html>
+

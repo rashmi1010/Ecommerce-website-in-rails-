@@ -1,0 +1,125 @@
+<h2> </h2>
+<!DOCTYPE html>
+<html>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+<head>
+
+
+<body>
+
+
+
+<div id ="index_to">
+
+<%= form_for Product.new , :url =>  products_path , method: :post do |f| %>	
+<!-- <div onclick = "category()" >
+Category Name :  <%#= f.select :category_id, Category.all.pluck(:name, :id),remote: true %><br><br>
+</div>
+
+<%#= f.select(:category_id, Category.all.collect {|p| [p.name, p.id]},  {prompt: "Select"}, {class: 'form-control'}) %>
+<%#= f.select(:brand_id, Brand.all.collect {|t| [t.name, t.id]}, {}, {class: 'form-control'}) %> -->
+
+<div class="mb-3">
+<%= f.label :category_id, class: "form-label" %>
+<%= f.select(:category_id,options_for_select(Category.all.map {|region| [region.name,region.id]},selected: f.object.category_id),{prompt: "All"},{class: "form-select", onchange: "selectSubCategory()", id: "category_id"}) %>
+</div>
+<div class="mb-3">
+ <%= f.label :brand_id, class: "form-label" %>
+ <%= f.select(:brand_id,options_for_select([]),{prompt: "All"},{class: "form-select", id: "brand_id"}) %>
+</div>
+
+Brand Name : <%#= f.select :brand_id, options_for_select(.collect {|x| [x.name, x.id]), prompt: "Please select" %>
+<%# debugger %>
+<% if @subcat.present? %>
+    Brand Name :  <%= f.select :brand_id, @subcat.all.pluck(:name, :id) %> <br><br>
+<% end %>
+
+
+<!-- Brand Name :  <%#= f.select :brand_id, Brand.all.pluck(:name, :id) %> <br><br> -->
+Product Name : <%= f.text_field :name %><br><br>
+
+Product Cost : <%= f.text_field :price %><br><br>
+Product Quantity : <%= f.text_field :quantity %><br><br>
+Image: <%= f.file_field :image %><br><br>
+
+
+</body>
+</html>
+<script>
+    
+// $(document).ready(function(){
+// $("#category_id").change(function(){
+// var category_id = $(this).val()
+// var brand_id = "<%= current_user.id %>"
+// $.ajax({
+// type: "GET",
+// url: "/products/cat",
+// data: {categoty: category,brand: brand},
+// success: function(response){
+// response.forEach(regionFunction);
+// function regionFunction(item,index){
+// $("#brand_id").append('<option value="'+item["name"]+'">'+item["id"]+'</option>');
+// }
+// }
+// })
+// })
+// })
+    function selectSubCategory() {
+       var category_id =  $("#category_id").val();
+       $.ajax({
+        url: "/products/cat",
+        method: "GET",  
+        data: {category: category_id},
+        success: function(response){
+            response.forEach(regionFunction);
+            function regionFunction(item,index){
+                // debugger
+            $("#brand_id").append('<option value="'+item["id"]+'">'+item["name"]+'</option>');
+            }
+        }
+                
+       });
+    }
+
+</script>
+<!-- <script type="text/javascript">
+$("#hour_brand_id").prop("disabled", true); // second dropdown is disable while first dropdown is empty
+$("#hour_category_id").change(function(){
+    var category = $(this).val();
+    if(category == ''){
+        $("#hour_brand_id").prop("disabled", true);
+    }else{
+        $("#hour_brand_id").prop("disabled", false);
+    }
+    $.ajax({
+        url: "/products",
+        method: "GET",  
+        dataType: "json",
+        data: {category: category},
+        error: function (xhr, status, error) {
+            console.error('AJAX Error: ' + status + error);
+        },
+        success: function (response) {
+            console.log(response);
+            var brands = response["brands"];
+            $("#hour_brand_id").empty();
+
+            $("#hour_brand_id").append('<option>Select Task</option>');
+            for(var i = 0; i < brands.length; i++){
+                $("#hour_brand_id").append('<option value="' + brands[i]["id"] + '">' +brands[i]["name"] + '</option>');
+            }
+        }
+    });
+});
+</script>
+ --><%#=f.submit , :onclick => "createProduct()"%>
+<%= submit_tag :createproduct, onclick: "createProduct()" %>
+
+ 
+<% end %>
+
+</div>
+
+
+
+

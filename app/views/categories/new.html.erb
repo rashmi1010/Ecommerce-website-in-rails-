@@ -1,0 +1,14 @@
+
+<h1>Category </h1>
+
+<%= form_for @category , :url =>  categories_path , method: :post do |f| %>	
+
+ Category Name : <%= f.text_field :name %>
+
+ <%= submit_tag 'submit'  %>
+ 
+<% end %>
+<%=link_to "create category",new_category_path %>
+ 
+ 
+

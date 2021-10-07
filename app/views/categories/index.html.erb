@@ -1,0 +1,36 @@
+<%=link_to "create category",new_category_path %>
+
+<%#= link_to "Add new appointment", new_product_path %>
+
+
+<br>
+<style type="text/css">
+table, th, td {
+  border: 1px solid black;
+  border-collapse: collapse;
+  height :50px;
+  width :500px ;
+}
+</style>
+<table>
+	 <tr>
+	 	<th> category id</th> 
+	 	<th> name </th> 
+	 		
+	 		<th> Delete</th>
+	 		<th> show</th>
+	 </tr>
+	<% @categories.each do|t|%>
+		<tr>
+			<td> <center><%= t.id%></center> </td> 
+		 <td> <center> <%= t.name%></center> </td> 
+		 
+		 <td> <center> <%= link_to "Delete " ,category_path(t.id) ,method: :DELETE %></center></td>
+		
+		 <td> <center><%= link_to "show" , category_path(t.id) %> </center></td>
+		</tr>	 
+<% end %>
+</table>
+
+
+

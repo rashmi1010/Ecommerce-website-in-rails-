@@ -1,0 +1,45 @@
+<center><h5>welcome to customer index page </h5></center>
+
+  <%# @products.each_slice(4) do |products| %>
+  	<%# debugger %>
+      <%# products.each do |product| %>
+        	<%#= image_tag(product.image,:size => "260x180")if product.image.attached? %>
+      <%# end %>
+    
+  <%# end %>
+
+<h5>Enter the product to search </h5>
+<%= form_tag( products_path, method: :get) do %>
+
+Product name : <%=text_field_tag :search ,params[:search]%>
+Category name : <%=text_field_tag :store ,params[:store]%>
+<%= submit_tag ("search"),name: nil %>
+<% end %> 
+
+
+
+
+<div class="container"><br><br><br>
+  <div class="row"><br><br><br>
+  	<% @products.each do |products| %><br>
+  	<br>
+    	<div class ="col-4">
+
+
+    		<%# debugger %>
+      <%= image_tag(products.image,:size => "260x180")if products.image.attached? %><br>
+      <br>
+      Product Name: <%= products.name %><br>
+       Product Id: <%= products.id%><br>
+       Cost:<%=products.price %><br>
+
+
+ 
+ <%= button_to "Add to cart",cart_path(products), method: :get, class:"btn btn-primary btn-sm",class:'btn btn-warning',class:'btn btn-info'%><br>
+
+ 
+    	</div>
+    <% end %>
+
+  </div>
+</div>

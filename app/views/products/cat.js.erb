@@ -1,0 +1,4 @@
+<% if @subcat.present? %>
+	<%debugger%> 
+	 $("#index_to").html("<%= escape_javascript(render 'products/new', subcat: @subcat ) %>");
+<% end %>

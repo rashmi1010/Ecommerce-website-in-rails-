@@ -1,0 +1,26 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Title:</strong>
+  <%= @post.title %>
+</p>
+
+<p>
+  <strong>Body:</strong>
+  <%= @post.body %>
+</p>
+<p>
+
+<% if @post.files.any? %>
+ <h3>Images:</h3>
+ <% @post.files.each_with_index do |file,index| %>
+ <% if index == 0%>
+   <%= image_tag(file, style: 'height:50%;width:50%') %> <br>
+   <% else %>
+   <%= image_tag(file, width:100,height:100) %>
+<% end %>
+<% end %> 
+<% end %>
+</p>
+<%= link_to 'Edit', edit_post_path(@post) %> |
+<%= link_to 'Back', posts_path %>

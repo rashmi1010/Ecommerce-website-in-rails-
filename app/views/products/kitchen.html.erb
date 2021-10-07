@@ -1,0 +1,10 @@
+<h1> category form </h1>
+
+<%= form_for @category , :url =>  categories_path , method: :post do |f| %>	
+
+ 
+   Product Name : <%= f.select :name, ['refrigerator', 'Fans','Washing machine','Dish Washer','vaccum cleaner']%>
+
+ <%= submit_tag 'submit' %>
+ 
+<% end %>
