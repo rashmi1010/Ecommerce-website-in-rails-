@@ -1,4 +1,4 @@
-<center><h5>welcome to customer index page </h5></center>
+<center><h5>welcome to customer  </h5></center>
 
   <%# @products.each_slice(4) do |products| %>
   	<%# debugger %>
@@ -13,7 +13,7 @@
 
 Product name : <%=text_field_tag :search ,params[:search]%>
 Category name : <%=text_field_tag :store ,params[:store]%>
-<%= submit_tag ("search"),name: nil %>
+<%= submit_tag ("search"),name: nil,class:"btn btn-primary btn-sm",class:'btn btn-warning',class:'btn btn-info'%><br>
 <% end %> 
 
 
@@ -35,7 +35,7 @@ Category name : <%=text_field_tag :store ,params[:store]%>
 
 
  
- <%= button_to "Add to cart",cart_path(products), method: :get, class:"btn btn-primary btn-sm",class:'btn btn-warning',class:'btn btn-info'%><br>
+ <%= button_to "Add to cart",carts_path(id: products), method: :post ,class:"btn btn-primary btn-sm",class:'btn btn-warning',class:'btn btn-info'%><br>
 
  
     	</div>

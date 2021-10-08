@@ -4,4 +4,5 @@ class Product < ApplicationRecord
 	has_one_attached :image
 	has_many :carts
 	has_many :customers, through: :carts
+	
 end

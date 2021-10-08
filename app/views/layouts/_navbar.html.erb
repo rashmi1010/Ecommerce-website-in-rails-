@@ -1,6 +1,39 @@
+<!-- Navbar -->
+<nav class="navbar navbar-expand-md navbar-light">
+
+  <!-- Collapse button -->
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#basicExampleNav9"
+    aria-controls="basicExampleNav9" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+
+  <!-- Links -->
+  
+  <!-- Links -->
+
+</nav>
+<!-- Navbar -->
+
+
+
 <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
- 
-<h4>Products Management</h4>
+ <!-- Navbar -->
+
+<!-- Navbar -->
+
+<nav class="navbar navbar-expand-md navbar-light">
+
+  <!-- Collapse button -->
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#basicExampleNav2"
+    aria-controls="basicExampleNav2" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+
+  <a class="navbar-brand" href="#!">
+    <img src="https://mdbootstrap.com/img/logo/mdb-transaprent-noshadows.png" height="30" alt="mdb logo">
+  </a>
+
+</nav>
 
     
   <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
@@ -26,12 +59,15 @@
          
           <li class="nav-item">
              <%= link_to 'Inventory' ,"", class: "nav-link" %></a>
-          </li>
+          </li> <br><br>
+            <div style="margin-left: auto;">
+              <%= link_to 'Edit profile', edit_user_registration_path, :class => 'navbar-link' %> |
+              <%= link_to "Logout", destroy_user_session_path, method: :delete, :class => 'navbar-link'  %>
+            </div>
+       
+
         </ul>
-        <div style="margin-left: auto;">
-          <%= link_to 'Edit profile', edit_user_registration_path, :class => 'navbar-link' %> |
-          <%= link_to "Logout", destroy_user_session_path, method: :delete, :class => 'navbar-link'  %>
-        </div>
+        
 
 
         <nav class="navbar navbar-dark bg-dark justify-content-between">
@@ -60,6 +96,42 @@
           <%= link_to 'Edit profile', edit_user_registration_path, :class => 'navbar-link' %> |
           <%= link_to "Logout", destroy_user_session_path, method: :delete, :class => 'navbar-link'  %>
         </div>
+
+
+<nav class="navbar navbar-expand-md navbar-light">
+
+  <!-- Collapse button -->
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#basicExampleNav7"
+    aria-controls="basicExampleNav7" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+
+  <!-- Links -->
+  <div class="collapse navbar-collapse" id="basicExampleNav7">
+
+    <!-- Right -->
+    <ul class="navbar-nav nav-flex-icons ml-auto">
+      <li class="nav-item dropdown">
+        <a class="nav-link dropdown-toggle" id="navbarDropdownMenuLink-55" data-toggle="dropdown"
+          aria-haspopup="true" aria-expanded="false">
+          <img src="https://mdbootstrap.com/img/Photos/Avatars/img (31).jpg" class="rounded-circle"
+            style="height: 34px;" alt="avatar image">
+        </a>
+        <div class="dropdown-menu dropdown-menu-lg-right" aria-labelledby="navbarDropdownMenuLink-55">
+          <a class="dropdown-item" <%= link_to 'Edit profile', edit_user_registration_path, :class => 'navbar-link' %> ></a>
+          <a class="dropdown-item" href="#!">Settings</a>
+          <a class="dropdown-item" href="#!">Profile</a>
+          <a class="dropdown-item" <%= link_to "Logout", destroy_user_session_path, method: :delete, :class => 'navbar-link'  %>></a>
+
+        </div>
+      </li>
+    </ul>
+
+  </div>
+  <!-- Links -->
+
+</nav>
+
 <nav class="navbar navbar-light bg-light justify-content-between">
   
   <form class="form-inline">
@@ -72,3 +144,6 @@
     <%end%>
   </div>
 </nav>
+
+
+
