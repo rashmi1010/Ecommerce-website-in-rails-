@@ -6,4 +6,6 @@ class User < ApplicationRecord
 
          enum role: {admin:"admin", customer:"customer"}
 
+  has_many :carts
+
 end

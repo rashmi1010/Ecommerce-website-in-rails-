@@ -1,12 +1,17 @@
 class CartsController < ApplicationController
 	 def index
-  
-    @carts = Cart.all
-		@products = Product.all
+    @carts = current_user.carts
+  end
+
+  def create
+  	cart = current_user.carts.new(product_id: params[:id])
+  	if cart.save
+  		redirect_to carts_path
+  	else
+    	redirect_to customers_path
+  	end
   end
   
-def show
-
-		@product = Product.find(params[:id])
-end
+	def show
+	end
 end
